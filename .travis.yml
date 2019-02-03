@@ -9,7 +9,7 @@ addons:
   ssh_known_hosts:
   - 85.143.223.101:22
 before_install:
-- openssl aes-256-cbc -K $encrypted_988ec741047d_key -iv $encrypted_988ec741047d_iv
+- openssl aes-256-cbc -K $encrypted_5f1fe41a254e_key -iv $encrypted_5f1fe41a254e_iv
   -in .travis/deploy_rsa.enc -out .travis/deploy_rsa -d
 - eval "$(ssh-agent -s)"
 - cp .travis/deploy_rsa ~/.ssh/deploy_rsa
