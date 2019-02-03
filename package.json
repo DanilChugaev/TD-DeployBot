@@ -20,6 +20,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "node-telegram-bot-api": "^0.30.0",
-    "nodemon": "^1.18.9"
+    "nodemon": "^1.18.9",
+    "socks5-https-client": "^1.2.1"
   }
 }
