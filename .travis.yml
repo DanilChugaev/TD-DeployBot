@@ -1,0 +1,24 @@
+language: node_js
+node_js:
+- 10.15.1
+install: true
+dist: trusty
+sudo: false
+
+addons:
+  ssh_known_hosts:
+  - 85.143.223.101:22
+before_install:
+- openssl aes-256-cbc -K $encrypted_988ec741047d_key -iv $encrypted_988ec741047d_iv
+  -in .travis/deploy_rsa.enc -out .travis/deploy_rsa -d
+- eval "$(ssh-agent -s)"
+- cp .travis/deploy_rsa ~/.ssh/deploy_rsa
+- chmod 600 ~/.ssh/deploy_rsa
+- ssh-add ~/.ssh/deploy_rsa
+
+deploy:
+- provider: script
+  skip_cleanup: true
+  script: ".travis/deploy.sh"
+  on:
+    branch: master
