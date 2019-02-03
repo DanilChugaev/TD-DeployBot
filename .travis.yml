@@ -24,4 +24,4 @@ deploy:
   on:
     branch: master
 after_deploy:
-  - .travis/after_deploy.sh
+  - bash .travis/after_deploy.sh
