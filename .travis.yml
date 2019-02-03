@@ -23,3 +23,5 @@ deploy:
   script: ".travis/deploy.sh"
   on:
     branch: master
+after_deploy:
+  - .travis/after_deploy.sh

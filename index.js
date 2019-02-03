@@ -1,8 +1,12 @@
 process.env["NTBA_FIX_319"] = 1;
-const TelegramBot = require('node-telegram-bot-api');
-const token = require(__dirname + '/config.json').token;
 
-const bot = new TelegramBot(token, {polling: true});
+const axios = require('axios');
+const TelegramBot = require('node-telegram-bot-api');
+const config = require(__dirname + '/config.json');
+
+const telegramToken = config.telegramToken;
+const travisToken = config.travisToken;
+const bot = new TelegramBot(telegramToken, {polling: true});
 
 // Matches "/echo [whatever]"
 bot.onText(/\/echo (.+)/, (msg, match) => {
